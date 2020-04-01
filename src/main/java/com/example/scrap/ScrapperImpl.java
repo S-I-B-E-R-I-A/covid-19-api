@@ -49,7 +49,7 @@ public class ScrapperImpl implements Scrapper {
         AtomicReference<Country> ukraineStats = new AtomicReference<>(new Country());
         hasher.getCountries().forEach(it -> {
             if (it.countryName.equalsIgnoreCase("Ukraine")) {
-                ukraineStats.set(new Country());
+                ukraineStats.set(it);
             }
         });
 
