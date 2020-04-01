@@ -1,7 +1,6 @@
 package com.example.scrap;
 
 
-import com.example.model.Country;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -47,10 +46,10 @@ public class ScrapperImpl implements Scrapper {
             e.printStackTrace();
         }
 
-        AtomicReference<Country> ukraineStats = new AtomicReference<>();
+        AtomicReference<Country> ukraineStats = new AtomicReference<>(new Country());
         hasher.getCountries().forEach(it -> {
-            if (it.getCountryName().equalsIgnoreCase("Ukraine")) {
-                ukraineStats.set(it.copy());
+            if (it.countryName.equalsIgnoreCase("Ukraine")) {
+                ukraineStats.set(new Country());
             }
         });
 
