@@ -1,5 +1,6 @@
 package com.example.scrap;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Country {
@@ -26,4 +27,6 @@ public class Country {
     @JsonProperty("Reported_1st_case")
     public String firstCase;
 
+    @JsonProperty("placeInWorld")
+    public int placeInWorld;
 }

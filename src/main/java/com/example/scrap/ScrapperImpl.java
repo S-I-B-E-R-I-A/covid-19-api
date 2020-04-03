@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
@@ -40,6 +41,14 @@ public class ScrapperImpl implements Scrapper {
             System.out.println(jsonArray.toString());
             List<Country> countries = mapper.readValue(jsonArray.toString(), new TypeReference<List<Country>>() {
             });
+            Collections.sort(countries, new Comparator<Country>() {
+                @Override
+                public int compare(Country t1, Country t2) {
+                    int t1Cases = casesToInt(t1.totalCases);
+                    int t2Cases = casesToInt(t2.totalCases);
+                    return Integer.compare(t2Cases, t1Cases);
+                }
+            });
             hasher.saveCountries(countries);
             System.out.println();
         } catch (JsonProcessingException e) {
@@ -48,7 +57,11 @@ public class ScrapperImpl implements Scrapper {
 
         AtomicReference<Country> ukraineStats = new AtomicReference<>(new Country());
         hasher.getCountries().forEach(it -> {
+            int placeInWorld = hasher.getCountries().indexOf(it);
             if (it.countryName.equalsIgnoreCase("Ukraine")) {
+                if (it.placeInWorld == 0) {
+                    it.placeInWorld = placeInWorld + 1;
+                }
                 ukraineStats.set(it);
             }
         });
@@ -59,6 +72,17 @@ public class ScrapperImpl implements Scrapper {
             e.printStackTrace();
             return "Error";
         }
+    }
+
+    private int casesToInt(String totalCases) {
+        int thousands, other;
+        if (totalCases.contains(",")) {
+            int index = totalCases.indexOf(",");
+            thousands = Integer.parseInt(totalCases.substring(0, index));
+            other = Integer.parseInt(totalCases.substring(index + 1, totalCases.length()));
+            return thousands * 1000 + other;
+        }
+        return Integer.parseInt(totalCases);
     }
 
     @Override
