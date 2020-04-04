@@ -29,4 +29,9 @@ public class Country {
 
     @JsonProperty("placeInWorld")
     public int placeInWorld;
+
+    @JsonProperty("Total_Tests")
+    public String totalTests;
+    @JsonProperty("Tests/_1M_pop")
+    public String testsPerMillion;
 }

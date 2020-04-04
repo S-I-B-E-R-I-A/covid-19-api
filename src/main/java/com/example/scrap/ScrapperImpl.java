@@ -76,6 +76,9 @@ public class ScrapperImpl implements Scrapper {
 
     private int casesToInt(String totalCases) {
         int thousands, other;
+        if (totalCases.length() > 7) {
+            return 0;
+        }
         if (totalCases.contains(",")) {
             int index = totalCases.indexOf(",");
             thousands = Integer.parseInt(totalCases.substring(0, index));
