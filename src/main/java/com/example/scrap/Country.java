@@ -34,4 +34,6 @@ public class Country {
     public String totalTests;
     @JsonProperty("Tests/_1M_pop")
     public String testsPerMillion;
+    @JsonProperty("Continent")
+    public String continent;
 }
