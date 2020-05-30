@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Country {
+    @JsonProperty("#")
+    public String place;
     @JsonProperty("Country,_Other")
     public String countryName;
     @JsonProperty("New_Cases")
@@ -36,4 +38,6 @@ public class Country {
     public String testsPerMillion;
     @JsonProperty("Continent")
     public String continent;
+    @JsonProperty("Population")
+    public String population;
 }
