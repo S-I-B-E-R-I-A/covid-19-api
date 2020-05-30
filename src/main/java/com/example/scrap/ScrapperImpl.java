@@ -59,9 +59,6 @@ public class ScrapperImpl implements Scrapper {
         hasher.getCountries().forEach(it -> {
             int placeInWorld = hasher.getCountries().indexOf(it);
             if (it.countryName.equalsIgnoreCase("Ukraine")) {
-                if (it.placeInWorld == 0) {
-                    it.placeInWorld = placeInWorld + 1;
-                }
                 ukraineStats.set(it);
             }
         });

@@ -4,40 +4,54 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Country {
-    @JsonProperty("#")
+    interface Fields {
+        String NUMBER = "#";
+        String CONTINENT = "Continent";
+        String COUNTRY = "Country,_Other";
+        String POPULATION = "Population";
+        String NEW_CASES = "New_Cases";
+        String NEW_DEATHS = "New_Deaths";
+        String TOTAL_CASES = "Total_Cases";
+        String TOTAL_DEATHS = "Total_Deaths";
+        String TOTAL_RECOVERED = "Total_Recovered";
+        String ACTIVE_CASES = "Active_Cases";
+        String SERIOUS_AND_CRITICAL = "Serious,_Critical";
+        String CASES_PER_MILLION = "Tot_Cases/_1M_pop";
+        String DEATHS_PER_MILLION = "Deaths/_1M_pop";
+        String FIRST_CASE = "Reported_1st_case";
+        String TOTAL_TESTS = "Total_Tests";
+        String TESTS_PER_MILLION = "Tests/_1M_pop";
+    }
+    @JsonProperty(Fields.NUMBER)
     public String place;
-    @JsonProperty("Country,_Other")
-    public String countryName;
-    @JsonProperty("New_Cases")
-    public String newCases;
-    @JsonProperty("New_Deaths")
-    public String newDeaths;
-    @JsonProperty("Total_Cases")
-    public String totalCases;
-    @JsonProperty("Total_Deaths")
-    public String totalDeaths;
-    @JsonProperty("Total_Recovered")
-    public String totalRecovered;
-    @JsonProperty("Active_Cases")
-    public String activeCases;
-    @JsonProperty("Serious,_Critical")
-    public String criticalCases;
-    @JsonProperty("Tot_Cases/_1M_pop")
-    public String totalCasesPerMillion;
-    @JsonProperty("Deaths/_1M_pop")
-    public String deathPerMillion;
-    @JsonProperty("Reported_1st_case")
-    public String firstCase;
-
-    @JsonProperty("placeInWorld")
-    public int placeInWorld;
-
-    @JsonProperty("Total_Tests")
-    public String totalTests;
-    @JsonProperty("Tests/_1M_pop")
-    public String testsPerMillion;
-    @JsonProperty("Continent")
+    @JsonProperty(Fields.CONTINENT)
     public String continent;
-    @JsonProperty("Population")
+    @JsonProperty(Fields.COUNTRY)
+    public String countryName;
+    @JsonProperty(Fields.POPULATION)
     public String population;
+    @JsonProperty(Fields.NEW_CASES)
+    public String newCases;
+    @JsonProperty(Fields.NEW_DEATHS)
+    public String newDeaths;
+    @JsonProperty(Fields.TOTAL_CASES)
+    public String totalCases;
+    @JsonProperty(Fields.TOTAL_DEATHS)
+    public String totalDeaths;
+    @JsonProperty(Fields.TOTAL_RECOVERED)
+    public String totalRecovered;
+    @JsonProperty(Fields.ACTIVE_CASES)
+    public String activeCases;
+    @JsonProperty(Fields.SERIOUS_AND_CRITICAL)
+    public String criticalCases;
+    @JsonProperty(Fields.CASES_PER_MILLION)
+    public String totalCasesPerMillion;
+    @JsonProperty(Fields.DEATHS_PER_MILLION)
+    public String deathPerMillion;
+    @JsonProperty(Fields.FIRST_CASE)
+    public String firstCase;
+    @JsonProperty(Fields.TOTAL_TESTS)
+    public String totalTests;
+    @JsonProperty(Fields.TESTS_PER_MILLION)
+    public String testsPerMillion;
 }
