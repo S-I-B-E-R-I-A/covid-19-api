@@ -57,8 +57,8 @@ public class ScrapperImpl implements Scrapper {
 
         AtomicReference<Country> ukraineStats = new AtomicReference<>(new Country());
         hasher.getCountries().forEach(it -> {
-            int placeInWorld = hasher.getCountries().indexOf(it);
             if (it.countryName.equalsIgnoreCase("Ukraine")) {
+                it.place = String.valueOf(Integer.parseInt(it.place) + 1);
                 ukraineStats.set(it);
             }
         });
