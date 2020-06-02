@@ -11,6 +11,7 @@ public class Country {
         String POPULATION = "Population";
         String NEW_CASES = "New_Cases";
         String NEW_DEATHS = "New_Deaths";
+        String NEW_RECOVERED = "New_Recovered";
         String TOTAL_CASES = "Total_Cases";
         String TOTAL_DEATHS = "Total_Deaths";
         String TOTAL_RECOVERED = "Total_Recovered";
@@ -21,6 +22,9 @@ public class Country {
         String FIRST_CASE = "Reported_1st_case";
         String TOTAL_TESTS = "Total_Tests";
         String TESTS_PER_MILLION = "Tests/_1M_pop";
+        String DEATH_EVERY_X_PEOPLE = "1_Death_every_X_ppl";
+        String CASE_EVERY_X_PEOPLE = "1_Case_every_X_ppl";
+        String TEST_EVERY_X_PEOPLE = "1_Test_every_X_ppl";
     }
     @JsonProperty(Fields.NUMBER)
     public String place;
@@ -34,6 +38,8 @@ public class Country {
     public String newCases;
     @JsonProperty(Fields.NEW_DEATHS)
     public String newDeaths;
+    @JsonProperty(Fields.NEW_RECOVERED)
+    public String newRecovered;
     @JsonProperty(Fields.TOTAL_CASES)
     public String totalCases;
     @JsonProperty(Fields.TOTAL_DEATHS)
@@ -54,4 +60,10 @@ public class Country {
     public String totalTests;
     @JsonProperty(Fields.TESTS_PER_MILLION)
     public String testsPerMillion;
+    @JsonProperty(Fields.DEATH_EVERY_X_PEOPLE)
+    public String deathEveryXPeople;
+    @JsonProperty(Fields.CASE_EVERY_X_PEOPLE)
+    public String caseEveryXPeople;
+    @JsonProperty(Fields.TEST_EVERY_X_PEOPLE)
+    public String testEveryXPeople;
 }
